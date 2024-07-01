@@ -196,6 +196,19 @@
 
   <div class="content">
     <h2>City-scale Grounding results</h2>
+
+    <h3>
+      <center>Visualization of city-scale grounding results</center>
+    </h3>
+    <img class="summary-img" src="./freereg/CityRefer_Fig_paper.png" style="width:100%;">
+    <a>
+      Qualitative grounding results on the CityRefer dataset. 
+      The projected 2D map is obtained from the city-scale point cloud by top-view projection. 
+      The candidate objects from CLM are represented by red masks. 
+      In the query text, the target object is marked in red, the landmark name is marked in blue, 
+      and the neighborhood statement is marked in green. 
+      Grounding results are shown in red boxes.
+      </a>
     
     <h3>
       <center>Compare to baseline method CityRefer</center>
@@ -208,22 +221,7 @@
       (e.g., it is next to another house with a red car parked in its front yard, it is in front of a multicolored White and beige house with a brown roof, etc.). 
     </a>
     <br><br>
-
-    
-
-    <h3>
-      <center>Visualization of feature maps and established correspondences</center>
-    </h3>
-    <img class="summary-img" src="./freereg/feat_match-0.png" style="width:100%;">
-    <img class="summary-img" src="./freereg/feat_match-1.png" style="width:100%;">
-    <img class="summary-img" src="./freereg/feat_match-2.png" style="width:100%;">
-    <a>
-      <strong>(a)</strong> Input RGB images and point clouds for registration. 
-      <strong>(b)</strong> The ground truth RGB images corresponding to the point clouds, solely intended for the readers' visualization
-      of the overlapping regions. 
-      <strong>(c-e)</strong> Diffusion / Geometric / Fused Feature maps of the input RGB images and point clouds. 
-      <strong>(g)</strong> Estimated correspondences from FreeReg.
-      </a>
+  
   </div>
 
   <div class="content">
