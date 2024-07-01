@@ -47,6 +47,10 @@
         <a href="freereg/bibtex.txt" target="_blank">[BibTeX]</a>
       </p>
     </font>
+
+      <div class="content">
+    <h2 style="text-align:center;">Do you want to locate an object in a large city based only on a description text?</h2>
+  </div>
     
     <img src="./freereg/teaser.png" class="teaser-gif" style="width:100%;"><br>
     <a style="text-align:center">
@@ -167,14 +171,13 @@
 
   <div class="content">
     <h2 style="text-align:center;">Abstract</h2>
-    <p>Matching cross-modality features between images and point clouds is a fundamental problem for image-to-point cloud registration.
-      However, due to the modality difference between images and points, it is difficult to learn robust and discriminative cross-modality features by existing metric learning methods for feature matching.
-      Instead of applying metric learning on cross-modality data, we propose to unify the modality between images and point clouds by pretrained large-scale models first, and then establish robust correspondence within the same modality. 
-      We show that the intermediate features, called diffusion features, extracted by depth-to-image diffusion models are semantically consistent between images and point clouds, which enables the building of coarse but robust cross-modality correspondences.
-      We further extract geometric features on depth maps produced by the monocular depth estimator. By matching such geometric features, we significantly improve the accuracy of the coarse correspondences produced by diffusion features.
-      Extensive experiments demonstrate that without any task-specific training, direct utilization of both features produces accurate image-to-point cloud registration. 
-      On three public indoor and outdoor benchmarks, the proposed method averagely achieves a 20.6% improvement in Inlier Ratio, a three-fold higher Inlier Number, and a 48.6% improvement in Registration Recall than existing state-of-the-arts. 
-      The codes are available in the supplementary material and will be released upon acceptance.</p>
+    <p> we present a 3D visual grounding method called CityAnchor for localizing an urban object in a city-scale point cloud. 
+      Recent developments in multiview reconstruction enable us to reconstruct city-scale point clouds but how to conduct visual grounding on such a large-scale urban point cloud remains an open problem. 
+      Previous 3D visual grounding system mainly concentrates on localizing an object in an image or a small-scale point cloud, which is not accurate and efficient enough to scale up to a city-scale point cloud. 
+      We address this problem with a multi-modality LLM which consists of two stages, a coarse localization and a fine-grained matching. 
+      Given the text descriptions, the coarse localization stage locates possible regions on a projected 2D map 
+      of the point cloud while the fine-grained matching stage accurately determines the most matched object in these possible regions. 
+      We conduct experiments on the CityRefer dataset and a new synthetic dataset annotated by us, both of which demonstrate our method can produce accurate 3D visual grounding on a city-scale 3D point cloud.</p>
   </div>
 
   <div class="content">
