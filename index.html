@@ -76,6 +76,8 @@
       <div class="navDot" id="dot1" onclick="goToPage(1)"></div>
     </div>
   </div>
+
+
   
   <script>
     // pre-list all the image files under gif_cropped folder
@@ -86,18 +88,7 @@
     "sun3d-hotel_umd-maryland_hotel3-24-28.gif",
     "scene0642_02-6-7.gif",
     "scene0025_01-20-24.gif",
-    "scene0223_00-11-12.gif",
-    "scene0694_00-0-4.gif",
-    "sun3d-mit_76_studyroom-76-1studyroom2-47-48.gif",
-    "sun3d-mit_76_studyroom-76-1studyroom2-29-31.gif",
-    "sun3d-mit_76_studyroom-76-1studyroom2-25-33.gif",
-    "sun3d-mit_76_studyroom-76-1studyroom2-61-62.gif",
-    "scene0265_02-17-28.gif","scene0146_02-8-12.gif",
-    "scene0309_00-2-3.gif",
-    "scene0334_02-0-1.gif",
-    "sun3d-hotel_uc-scan3-15-23.gif",
-    "scene0457_01-5-9.gif",
-    "sun3d-home_md-home_md_scan9_2012_sep_30-46-47.gif"];
+    "scene0223_00-11-12.gif"];
 
     var page = 0; // current page
 
@@ -122,6 +113,7 @@
       var htmlStr = '<h3><center>Patch warping based on FreeReg correspondences</center></h3> \
       <p>Based on the estimated FreeReg correspondences, we warp local RGB patches to their estimated corresponding positions in the point cloud. \
       Click left/right arrow or navigate dots to view more results. </p><table>';
+      
       for (var i = 0; i < selectedFiles.length; i += 2) {
         htmlStr += '<tr>';
         for (var j = 0; j < 2; j++) {
@@ -194,9 +186,6 @@
   <div class="content">
     <h2>City-scale Grounding Results</h2>
 
-    <h3>
-      <center>Visualization of city-scale grounding results</center>
-    </h3>
     <img class="summary-img" src="./freereg/CityRefer_Fig_paper.png" style="width:100%;">
     <p>
       Qualitative grounding results on the CityRefer dataset. 
