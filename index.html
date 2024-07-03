@@ -80,14 +80,17 @@
   
   <script>
     // pre-list all the image files under gif_cropped folder
-    var allFiles = ["sun3d-hotel_uc-scan3-0-10.gif",
-    "scene0477_01-16-19.gif",
-    "scene0025_01-2-3.gif",
-    "scene0335_02-0-4.gif",
-    "sun3d-hotel_umd-maryland_hotel3-24-28.gif",
-    "scene0642_02-6-7.gif",
-    "scene0025_01-20-24.gif",
-    "scene0223_00-11-12.gif"];
+
+    var allFiles = [
+    { file: "sun3d-hotel_uc-scan3-0-10.gif", description: "Description for image 1" },
+    { file: "scene0477_01-16-19.gif", description: "Description for image 2" },
+    { file: "scene0025_01-2-3.gif", description: "Description for image 3" },
+    { file: "scene0335_02-0-4.gif", description: "Description for image 4" },
+    { file: "sun3d-hotel_umd-maryland_hotel3-24-28.gif", description: "Description for image 5" },
+    { file: "scene0642_02-6-7.gif", description: "Description for image 6" },
+    { file: "scene0025_01-20-24.gif", description: "Description for image 7" },
+    { file: "scene0223_00-11-12.gif", description: "Description for image 8" }
+  ];
 
     var page = 0; // current page
 
@@ -117,8 +120,8 @@
         htmlStr += '<tr>';
         for (var j = 0; j < 2; j++) {
           if (i + j < selectedFiles.length) {
-            var file = selectedFiles[i + j];
-            htmlStr += '<td><img class="summary-img" src="./gif_cropped/' + file + '" style="width:100%;"></td>';
+            var fileobj = selectedFiles[i + j];
+            htmlStr += '<td><img class="summary-img" src="./gif_cropped/' + fileobj.file + '" style="width:100%;"></td>';
             if (j == 0 && i + j + 1 < selectedFiles.length) {
               // add a divider (dash line)
               htmlStr += '<td class="divider"></td>';
