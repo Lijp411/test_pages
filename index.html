@@ -121,7 +121,7 @@
         for (var j = 0; j < 2; j++) {
           if (i + j < selectedFiles.length) {
             var fileobj = selectedFiles[i + j];
-            htmlStr += '<td><img class="summary-img" src="./gif_cropped/' + fileObj.file + '"><div class="description">' + fileObj.description + '</div></td>';
+            htmlStr += '<td><img class="summary-img" src="./gif_cropped/' + fileObj.file + '" style="width:100%;"></td>';
             if (j == 0 && i + j + 1 < selectedFiles.length) {
               // add a divider (dash line)
               htmlStr += '<td class="divider"></td>';
