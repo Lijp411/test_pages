@@ -8,12 +8,15 @@
   <script type="text/javascript" src="./freereg/jquery.js"></script>
   <style>
     .image-container {
-      width: 200px;
+      width: 500px;
       text-align: center;
     }
     .summary-img {
-      width: 200px;
-      height: 200px;
+      width: 100%;
+    }
+    .block-img {
+      width: 500px;
+      height: 300px;
       object-fit: cover;
     }
     .divider {
@@ -134,7 +137,7 @@
         for (var j = 0; j < 2; j++) {
           if (i + j < selectedFiles.length) {
             var fileobj = selectedFiles[i + j];
-            htmlStr += '<td><div class="image-container"><img class="summary-img" src="./gif_cropped/' + fileobj.file + '"><div class="description">' + fileobj.description + '</div></div></td>';
+            htmlStr += '<td><div class="image-container"><img class="block-img" src="./gif_cropped/' + fileobj.file + '"><div class="description">' + fileobj.description + '</div></div></td>';
             if (j == 0 && i + j + 1 < selectedFiles.length) {
               // add a divider (dash line)
               htmlStr += '<td class="divider"></td>';
