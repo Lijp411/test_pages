@@ -116,7 +116,7 @@
       [shuffledFiles[i], shuffledFiles[j]] = [shuffledFiles[j], shuffledFiles[i]];
     }
     function showPage() {
-      var selectedFiles = shuffledFiles.slice(page * 8, (page + 1) * 8);
+      var selectedFiles = shuffledFiles.slice(page * 4, (page + 1) * 4);
 
       // construct a html string to show these images
       var htmlStr = '<h3><center>Patch warping based on FreeReg correspondences</center></h3> \
@@ -158,17 +158,17 @@
         showPage();
       }
       else if (page == 0){
-      page= allFiles.length / 8 - 1;
+      page= allFiles.length / 4 - 1;
         showPage();
       }
     }
 
     function nextPage() {
-      if (page < allFiles.length / 8 - 1) {
+      if (page < allFiles.length / 4 - 1) {
         page++;
         showPage();
       }
-      else if (page == allFiles.length / 8 - 1) {
+      else if (page == allFiles.length / 4 - 1) {
       page=0;
         showPage();
       }
