@@ -79,95 +79,98 @@
 
   
   <script>
-  // pre-list all the image files under gif_cropped folder
-  var allFiles = [
-    { file: "sun3d-hotel_uc-scan3-0-10.gif", description: "Description for image 1" },
-    { file: "scene0477_01-16-19.gif", description: "Description for image 2" },
-    { file: "scene0025_01-2-3.gif", description: "Description for image 3" },
-    { file: "scene0335_02-0-4.gif", description: "Description for image 4" },
-    { file: "sun3d-hotel_umd-maryland_hotel3-24-28.gif", description: "Description for image 5" },
-    { file: "scene0642_02-6-7.gif", description: "Description for image 6" },
-    { file: "scene0025_01-20-24.gif", description: "Description for image 7" },
-    { file: "scene0223_00-11-12.gif", description: "Description for image 8" }
-  ];
-    
-  var page = 0; // current page
+    // pre-list all the image files under gif_cropped folder
+    var allFiles = ["sun3d-hotel_uc-scan3-0-10.gif",
+    "scene0477_01-16-19.gif",
+    "scene0025_01-2-3.gif",
+    "scene0335_02-0-4.gif",
+    "sun3d-hotel_umd-maryland_hotel3-24-28.gif",
+    "scene0642_02-6-7.gif",
+    "scene0025_01-20-24.gif",
+    "scene0223_00-11-12.gif"];
 
-  function goToPage(p) {
-    page = p;
-    showPage();
-  }
+    var page = 0; // current page
 
-  // Create a copy of the allFiles array
-  var shuffledFiles = allFiles.slice();
+    function goToPage(p) {
+      page = p;
+      showPage();
+    }
+    // Create a copy of the allFiles array
+    var shuffledFiles = allFiles.slice();
 
-  // Fisher-Yates Shuffle
-  for (let i = shuffledFiles.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
-    [shuffledFiles[i], shuffledFiles[j]] = [shuffledFiles[j], shuffledFiles[i]]; // swap elements i and j
-  }
+    // Fisher-Yates Shuffle
+    for (let i = shuffledFiles.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
 
-  function showPage() {
-    var selectedFiles = shuffledFiles.slice(page * 4, (page + 1) * 4);
+      // swap elements i and j
+      [shuffledFiles[i], shuffledFiles[j]] = [shuffledFiles[j], shuffledFiles[i]];
+    }
+    function showPage() {
+      var selectedFiles = shuffledFiles.slice(page * 4, (page + 1) * 4);
 
-    // construct a html string to show these images and their descriptions
-    var htmlStr = '<h3><center>Patch warping based on FreeReg correspondences</center></h3> \
-    <p>Based on the estimated FreeReg correspondences, we warp local RGB patches to their estimated corresponding positions in the point cloud. \
-    Click left/right arrow or navigate dots to view more results. </p><table>';
-
-    for (var i = 0; i < selectedFiles.length; i += 2) {
-      htmlStr += '<tr>';
-      for (var j = 0; j < 2; j++) {
-        if (i + j < selectedFiles.length) {
-          var fileObj = selectedFiles[i + j];
-          htmlStr += '<td><img class="summary-img" src="./gif_cropped/' + fileObj.file + '"><div class="description">' + fileObj.description + '</div></td>';
-          if (j == 0 && i + j + 1 < selectedFiles.length) {
-            // add a divider (dash line)
-            htmlStr += '<td class="divider"></td>';
+      // construct a html string to show these images
+      var htmlStr = '<h3><center>Patch warping based on FreeReg correspondences</center></h3> \
+      <p>Based on the estimated FreeReg correspondences, we warp local RGB patches to their estimated corresponding positions in the point cloud. \
+      Click left/right arrow or navigate dots to view more results. </p><table>';
+      
+      for (var i = 0; i < selectedFiles.length; i += 2) {
+        htmlStr += '<tr>';
+        for (var j = 0; j < 2; j++) {
+          if (i + j < selectedFiles.length) {
+            var file = selectedFiles[i + j];
+            htmlStr += '<td><img class="summary-img" src="./gif_cropped/' + file + '" style="width:100%;"></td>';
+            if (j == 0 && i + j + 1 < selectedFiles.length) {
+              // add a divider (dash line)
+              htmlStr += '<td class="divider"></td>';
+            }
           }
         }
+        htmlStr += '</tr>';
       }
-      htmlStr += '</tr>';
-    }
-    htmlStr += '</table>';
-    // add these images to a div with id 'content'
-    document.getElementById('gif-display').innerHTML = htmlStr;
+      htmlStr += '</table>';
+      // add these images to a div with id 'content'
+      document.getElementById('gif-display').innerHTML = htmlStr;
 
-    // update navigation dots
-    for (var i = 0; i < 2; i++) {
-      var dot = document.getElementById('dot' + i);
-      if (i == page) {
-        dot.classList.add('navDotSelected');
-      } else {
-        dot.classList.remove('navDotSelected');
+      // update navigation dots
+      for (var i = 0; i < 2; i++) {
+        var dot = document.getElementById('dot' + i);
+        if (i == page) {
+          dot.classList.add('navDotSelected');
+        } else {
+          dot.classList.remove('navDotSelected');
+        }
       }
     }
-  }
 
-  function prevPage() {
-    if (page > 0) {
-      page--;
-      showPage();
-    } else if (page == 0) {
-      page = Math.ceil(allFiles.length / 4) - 1;
-      showPage();
+    function prevPage() {
+      if (page > 0) {
+        page--;
+        // add these images to a div with id 'con
+        showPage();
+      }
+      else if (page == 0){
+      page= allFiles.length / 4 - 1;
+        showPage();
+      }
     }
-  }
 
-  function nextPage() {
-    if (page < Math.ceil(allFiles.length / 4) - 1) {
-      page++;
-      showPage();
-    } else if (page == Math.ceil(allFiles.length / 4) - 1) {
-      page = 0;
-      showPage();
+    function nextPage() {
+      if (page < allFiles.length / 4 - 1) {
+        page++;
+        showPage();
+      }
+      else if (page == allFiles.length / 4 - 1) {
+      page=0;
+        showPage();
+      }
     }
-  }
 
-  // Show the first page when the script is first run
-  showPage();
+    // Show the first page when the script is first run
+    showPage();
   </script>
 
+
+  
   <div class="content">
     <h2 style="text-align:center;">Abstract</h2>
     <p> 3D visual grounding is a critical task in computer vision with transformative applications in robotics, AR/VR, and autonomous driving. 
